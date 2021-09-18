@@ -1,7 +1,7 @@
 /***************************************************
 Vista.java
 Autor: Diego Morales
-Fecha: 13/09/2021
+Fecha: 17/09/2021
 
 Vista. Responsable de toda interaccion con el usuario.
 ***************************************************/
@@ -12,7 +12,7 @@ public class vista{
 	private Scanner scan;
 
 	public vista(){
-		scan = new Scanner(System.in);
+		scan = new Scanner(System.in, "ISO-8859-1");
 	}
   /*Metodo para elegír una opción
   @return número de opción
@@ -65,7 +65,9 @@ public class vista{
 	}
 	return resultado;
 	}
-
+	/*Metodo para pedir el tamaño de la RAM
+	@return Tamaño RAM
+	*/
   public int pedirtamano(){
     int resultado=0;
     try{
@@ -110,19 +112,23 @@ public class vista{
 		}
 		return resultado;
 	}
-
+	/*Metodo para mostrar la RAM total
+	*/
   public void MostrarRAMdisponible(double RAMdisponible){
     System.out.println("RAM disponible: "+RAMdisponible+" GB");
   }
-
+	/*Metodo para mostrar la RAM en uso
+	*/
   public void MostrarRAMenuso(double RAMenuso){
     System.out.println("RAM en uso: "+RAMenuso+" GB");
   }
-
+	/*Metodo para mostrar la RAM total
+	*/
   public void MostrarRAMtotal(double RAMtotal){
     System.out.println("RAM total: "+RAMtotal+" GB");
   }
-
+	/*Metodo para mostrar los programas en ejecución
+	*/
   public void Mostrarprogramasenejecucion(ArrayList<String> P){
     System.out.println("Los programas en ejecución son: ");
     for (int i=0; i<P.size(); i++) {
@@ -130,7 +136,8 @@ public class vista{
     	System.out.println(P.get(i));
     }
   }
-
+	/*Metodo para mostrar el estado de memoria
+	*/
 	public void Estadomemoria(String[] p){
 		System.out.println("El estado de memoria es: ");
 		for (int i=0; i<p.length; i++) {
@@ -138,11 +145,15 @@ public class vista{
 			System.out.println(p[i]);
 			}
 		}
-
-  public void Mostrarprogramasenecola(String[] Programas){
-    System.out.println("Los programas en cola son: "+ Arrays.toString(Programas));
+		/*Metodo para mostrar los programas en cola
+		*/
+  public void Mostrarprogramasenecola(ArrayList<String> P){
+    System.out.println("Los programas en cola son: ");
+		for (int i=0; i<P.size(); i++) {
+			System.out.println(P.get(i));
+		}
   }
-	/*Metodo para mostrar mensaje de despedida al usuario
+	/*Metodo para mostrar mensaje de despedida ae usuario
 	*/
 	public void despedida(){
 		System.out.println("Gracias por usar este programa, adios");
@@ -173,15 +184,13 @@ public class vista{
 	public void Sinespacio(){
 		System.out.println("No hay más espacio en la RAM, se agregará el programa a la cola");
 	}
-
+	/*Metodo para mostrar mensaje
+	*/
   public void error(){
     System.out.println("Ha ocurrido un error");
   }
-
-  public void ArchivoCreado(String nombre){
-    System.out.println("Archivo creado: "+nombre);
-  }
-
+	/*Metodo para leer el archivo
+	*/
   public void LeerArchivo(String data){
     System.out.println(data);
   }

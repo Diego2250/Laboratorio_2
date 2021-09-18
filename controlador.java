@@ -1,7 +1,7 @@
 /***************************************************
 Controlador.java
 Autor: Diego Morales
-Fecha: 14/09/2021
+Fecha: 17/09/2021
 
 Driver program. Instancia la vista y el modelo,
 y los comunica de acuerdo con las elecciones del
@@ -21,7 +21,7 @@ public class controlador{
 		int espacio_total=0;
 		double RAM_disponible=0.0, RAM_ensuo=0.0;
     v.bienvenida();
-    a.crearchivo();
+    //a.crearchivo();
 
     while (opcion != 10){
 				opcion = v.menuOpciones();
@@ -49,6 +49,7 @@ public class controlador{
           break;
 
           case 2:
+					a.leer();
 					String nombre;
           int espacio, tiempo;
           String[] dato = v.pedirdatosprograma();
@@ -68,6 +69,7 @@ public class controlador{
           v.MostrarRAMtotal(RAM_total);
           break;
           case 4:
+					bloques_en_uso=0;
 					for (int i=0;i<programas.length&&programas[i]!=null;i++) {
 						bloques_en_uso++;
 					}
@@ -76,6 +78,7 @@ public class controlador{
           v.MostrarRAMdisponible(RAM_disponible);
           break;
           case 5:
+					bloques_en_uso=0;
 					for (int i=0;i<programas.length&&programas[i]!=null;i++) {
 						bloques_en_uso++;
 					}
@@ -91,6 +94,7 @@ public class controlador{
 					v.Mostrarprogramasenejecucion(programasejecucion);
           break;
           case 7:
+					r.Cola();
           break;
 					case 8:
 					String[] memoria=new String[bloques];
